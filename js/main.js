@@ -1,7 +1,4 @@
 var button = document.getElementById("button");
-button.style.width = "100px";
-button.style.height = "50px";
-button.style.backgroundColor = "brown";
 
 var hMax = window.innerWidth;
 var vMax = window.innerHeight;
@@ -11,8 +8,9 @@ function randomizer() {
   var vRandom = Math.floor(Math.random() * (vMax + 1));
   button.style.marginLeft = hRandom - 100 + "px";
   button.style.marginTop = vRandom - 50 + "px";
-  var start = setTimeout(randomizer, 3000);
 }
+// TIMED FUNCTION
+setInterval(randomizer, 1000);
 
 // SCOREKEEPING FUNCTIONALITY
 
