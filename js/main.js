@@ -4,15 +4,17 @@ var hMax = window.innerWidth;
 var vMax = window.innerHeight;
 
 function randomizer() {
-  var hRandom = Math.floor(Math.random() * (hMax + 1));
-  var vRandom = Math.floor(Math.random() * (vMax + 1));
-  button.style.marginLeft = hRandom - 50 + "px";
-  button.style.marginTop = vRandom - 25 + "px";
-  
+  var hRandom = Math.round(Math.random()*hMax);
+  var vRandom = Math.round(Math.random()*vMax);
+  console.log("Horizontal: "+hRandom);
+  console.log("Vertical: "+vRandom);
+  button.style.marginLeft = hRandom+"px";
+  button.style.marginTop = vRandom+"px";
+
 }
 
 // TIMED FUNCTION
-setInterval(randomizer, 5000);
+setInterval(randomizer, 50000);
 
 // SCOREKEEPING FUNCTIONALITY
 
