@@ -1,4 +1,6 @@
 var button = document.getElementById("button");
+var buttonWidth = button.style.width;
+buttonWidth = "100px";
 
 var hMax = window.innerWidth;
 var vMax = window.innerHeight;
@@ -11,6 +13,10 @@ function randomizer() {
   button.style.marginLeft = hRandom+"px";
   button.style.marginTop = vRandom+"px";
 
+  var lol;
+  if(hRandom < hMax){
+    console.log("test");
+  }
 }
 
 // TIMED FUNCTION
