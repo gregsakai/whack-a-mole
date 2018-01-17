@@ -1,6 +1,5 @@
 var button = document.getElementById("button");
-var buttonWidth = button.style.width;
-buttonWidth = "100px";
+button.style.width = "100px";
 
 var hMax = window.innerWidth;
 var vMax = window.innerHeight;
@@ -13,14 +12,15 @@ function randomizer() {
   button.style.marginLeft = hRandom+"px";
   button.style.marginTop = vRandom+"px";
 
-  var lol;
-  if(hRandom < hMax){
-    console.log("test");
+  var hMaxOffset = hMax-parseInt(button.style.width);
+  if(hRandom > hMaxOffset){
+    console.log("Off the edge, reset");
+    randomizer();
   }
 }
 
 // TIMED FUNCTION
-setInterval(randomizer, 50000);
+setInterval(randomizer, 10000);
 
 // SCOREKEEPING FUNCTIONALITY
 
