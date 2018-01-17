@@ -1,6 +1,21 @@
+body {
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 #scoreDiv {
-  width: 10%;
-  background-color: blue;
+  text-align: center;
+  width: 150px;
+  height: 75px;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #87653f;
+  border-radius: 20px;
 }
 
 #button {

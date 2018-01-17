@@ -6,11 +6,13 @@ var vMax = window.innerHeight;
 function randomizer() {
   var hRandom = Math.floor(Math.random() * (hMax + 1));
   var vRandom = Math.floor(Math.random() * (vMax + 1));
-  button.style.marginLeft = hRandom - 100 + "px";
-  button.style.marginTop = vRandom - 50 + "px";
+  button.style.marginLeft = hRandom - 50 + "px";
+  button.style.marginTop = vRandom - 25 + "px";
+  
 }
+
 // TIMED FUNCTION
-setInterval(randomizer, 1000);
+setInterval(randomizer, 5000);
 
 // SCOREKEEPING FUNCTIONALITY
 
