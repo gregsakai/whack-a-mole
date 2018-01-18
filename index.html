@@ -5,10 +5,13 @@
     <title>Greg Sakai | Whack-a-Mole</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body onload="randomizer(); countdown();">
     <div class="cursorContainer">
-      <div id="scoreDiv">0</div>
+      <div id="scoreDiv" class="h1 text-center text-success well well-lg">Your Score: 0</div>
       <div id="timerDiv">0:10</div>
       <img src="img/mole.jpg" alt="mole" id="mole" />
     </div>
