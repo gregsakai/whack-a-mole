@@ -10,11 +10,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body onload="randomizer(); countdown();">
-    <div class="cursorContainer">
+    <!-- <div class="cursorContainer">
       <div id="scoreDiv" class="h1 text-center text-success well well-lg">Your Score: 0</div>
       <div id="timerDiv">0:10</div>
       <img src="img/mole.jpg" alt="mole" id="mole" />
-    </div>
+    </div> -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="scoreDiv">SCORE: 0</div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-danger navbar-btn center" id="stop">STOP</button>
+        </div>
+      </div>
+    </nav>
 
     <script src="js/main.js" type="text/javascript"></script>
   </body>

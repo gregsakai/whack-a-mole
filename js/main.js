@@ -57,5 +57,12 @@ setInterval(randomizer, 700);
 
 mole.addEventListener("click", function() {
   score++;
-  scoreDiv.innerHTML = "Your Score: " + score;
+  scoreDiv.innerHTML = "SCORE: " + score;
+});
+
+// STOP BUTTON
+
+var stop = document.getElementById("stop");
+stop.addEventListener("click", function(){
+  console.log("stops the game");
 });
