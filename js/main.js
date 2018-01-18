@@ -6,13 +6,13 @@ var score = 0;
 mole.style.width = "100px";
 mole.style.height = "70px";
 
-var hWindowSize = window.innerWidth;
-var vWindowSize = window.innerHeight;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
 
 function randomizer() {
   // Random value between 0 and the dimensions of the browser window
-  var hRandom = Math.round(Math.random()*hWindowSize);
-  var vRandom = Math.round(Math.random()*vWindowSize);
+  var hRandom = Math.round(Math.random()*windowWidth);
+  var vRandom = Math.round(Math.random()*windowHeight);
 
   console.log("Horizontal: "+hRandom);
   console.log("Vertical: "+vRandom);
@@ -21,8 +21,8 @@ function randomizer() {
   mole.style.marginTop = vRandom+"px";
 
   // Maximum left offset with "mole" size taken into account
-  var hMax = hWindowSize-parseInt(mole.style.width);
-  var vMax = vWindowSize-parseInt(mole.style.height);
+  var hMax = windowWidth-parseInt(mole.style.width);
+  var vMax = windowHeight-parseInt(mole.style.height);
 
   // If the "mole" goes outside the bounds of the window, re-run the function
   if(hRandom > hMax || vRandom > vMax){
