@@ -2,7 +2,7 @@ var mole = document.getElementById("mole");
 var scoreDiv = document.getElementById("scoreDiv");
 var score = 0;
 
-// Styled this part in JavaScript to reference it within the function
+// Styled in JavaScript to easily reference within the function
 mole.style.width = "100px";
 mole.style.height = "70px";
 
@@ -31,12 +31,33 @@ function randomizer() {
   }
 }
 
+// COUNTDOWN TIMER
+var minutes = 0;
+var seconds = 10;
+var timerDiv = document.getElementById("timerDiv");
+function countdown(){
+  seconds--;
+  if(seconds<10){
+    timerDiv.innerHTML = minutes+":0"+seconds;
+  } else {
+    timerDiv.innerHTML = minutes+":"+seconds;
+  }
+  if(seconds === 0){
+    alert("you suck");
+    location.reload();
+  }
+}
+var timer = setInterval(countdown, 1000);
+
 // TIMED FUNCTION
-setInterval(randomizer, 10000);
+setInterval(randomizer, 60000);
 
 // SCOREKEEPING FUNCTIONALITY
 
 mole.addEventListener("click", function() {
   score++;
   scoreDiv.innerHTML = score;
+  if(score===20){
+    seconds += 10;
+  }
 });

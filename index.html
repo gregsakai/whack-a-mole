@@ -6,11 +6,12 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   </head>
-  <body onload="randomizer()">
-    <div id="scoreDiv">0</div>
-
-    <!-- <button id="button">BUTTON</button> -->
-    <img src="img/mole.jpg" alt="mole" id="mole" />
+  <body onload="randomizer(); countdown();">
+    <div class="cursorContainer">
+      <div id="scoreDiv">0</div>
+      <div id="timerDiv">0:10</div>
+      <img src="img/mole.jpg" alt="mole" id="mole" />
+    </div>
 
     <script src="js/main.js" type="text/javascript"></script>
   </body>

@@ -1,10 +1,23 @@
 body {
   overflow: hidden;
-  cursor: url("img/hammer.png"), crosshair;
 }
 
 * {
   font-family: 'Nunito', sans-serif;
+}
+
+.cursorContainer {
+  width: 100vw;
+  height: 100vh;
+  cursor: url(img/hammer.png), crosshair;
+}
+
+#mole:hover {
+  cursor: grab;
+}
+
+#mole:active {
+  cursor: grabbing;
 }
 
 #scoreDiv {
