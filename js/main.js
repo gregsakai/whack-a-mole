@@ -31,27 +31,8 @@ function randomizer() {
   }
 }
 
-// COUNTDOWN TIMER
-// var minutes = 0;
-// var seconds = 10;
-// var timerDiv = document.getElementById("timerDiv");
-//
-// function countdown() {
-//   seconds--;
-//   if (seconds < 10) {
-//     timerDiv.innerHTML = minutes + ":0" + seconds;
-//   } else {
-//     timerDiv.innerHTML = minutes + ":" + seconds;
-//   }
-//   if (seconds === 0) {
-//     alert("you lose");
-//     location.reload();
-//   }
-// }
-// var timer = setInterval(countdown, 1000);
-
 // TIMED FUNCTION
-setInterval(randomizer, 700);
+setInterval(randomizer, 70000);
 
 // SCOREKEEPING FUNCTIONALITY
 
@@ -66,3 +47,7 @@ var stop = document.getElementById("stop");
 stop.addEventListener("click", function(){
   console.log("stops the game");
 });
+
+// PUSH TO DATABASE
+
+// RESOURCE https://stackoverflow.com/questions/8412505/send-data-from-javascript-to-a-mysql-database
