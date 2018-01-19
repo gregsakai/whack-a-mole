@@ -2,6 +2,23 @@ var mole = document.getElementById("mole");
 var scoreDiv = document.getElementById("scoreDiv");
 var score = 0;
 
+// NAME SUBMISSION
+var nameForm = document.getElementById("nameForm");
+var yourName = document.getElementById("yourName");
+var submitName = document.getElementById("submitName");
+var myName = yourName.value;
+
+function displayForm() {
+  nameForm.style.display = "block";
+}
+
+function submitForm() {
+  nameForm.style.display = "none";
+}
+
+submitName.addEventListener("click", submitForm);
+
+
 // Styled in JavaScript to easily reference within the function
 mole.style.width = "100px";
 mole.style.height = "70px";
@@ -42,7 +59,7 @@ mole.addEventListener("click", function() {
 
 // STOP BUTTON
 var stop = document.getElementById("stop");
-stop.addEventListener("click", function(){
+stop.addEventListener("click", function() {
   console.log("stops the game");
   // Use PHP to save user's name and score
 });
