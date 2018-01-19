@@ -35,17 +35,16 @@ function randomizer() {
 setInterval(randomizer, 70000);
 
 // SCOREKEEPING FUNCTIONALITY
-
 mole.addEventListener("click", function() {
   score++;
   scoreDiv.innerHTML = "SCORE: " + score;
 });
 
 // STOP BUTTON
-
 var stop = document.getElementById("stop");
 stop.addEventListener("click", function(){
   console.log("stops the game");
+  // Use PHP to save user's name and score
 });
 
 // PUSH TO DATABASE
