@@ -8,14 +8,9 @@ var yourName = document.getElementById("yourName");
 var submitName = document.getElementById("submitName");
 var myName = yourName.value;
 
-function displayForm() {
-  nameForm.style.display = "block";
-}
-
 function submitForm() {
   nameForm.style.display = "none";
 }
-
 submitName.addEventListener("click", submitForm);
 
 

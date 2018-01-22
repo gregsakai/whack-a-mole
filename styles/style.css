@@ -12,6 +12,43 @@ body {
   cursor: url('/img/hammer.png'), crosshair;
 }
 
+/* NAME FORM */
+.formContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128,128,128,0.2);
+}
+#nameForm {
+  width: 25%;
+  height: 400px;
+  background-color: yellow;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+/* #yourName {
+  background-color: #c2c3c4;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  font-size: 40px;
+}
+#submitName {
+  padding: 15px;
+  background-color: #a5b6d1;
+  border-radius: 10px;
+  border: none;
+  font-size: 30px;
+  margin-top: 20px;
+} */
+
 #mole:hover {
   cursor: grab;
 }
