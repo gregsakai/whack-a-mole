@@ -6,13 +6,14 @@ var score = 0;
 var nameForm = document.getElementById("nameForm");
 var yourName = document.getElementById("yourName");
 var submitName = document.getElementById("submitName");
-var myName = yourName.value;
+var currentLeader = document.getElementById("currentLeader");
 
 function submitForm() {
   nameForm.style.display = "none";
+  currentLeader.innerHTML = yourName.value;
 }
-submitName.addEventListener("click", submitForm);
 
+submitName.addEventListener("click", submitForm);
 
 // Styled in JavaScript to easily reference within the function
 mole.style.width = "100px";
@@ -49,7 +50,7 @@ setInterval(randomizer, 70000);
 // SCOREKEEPING FUNCTIONALITY
 mole.addEventListener("click", function() {
   score++;
-  scoreDiv.innerHTML = "SCORE: " + score;
+  scoreDiv.innerHTML = score;
 });
 
 // STOP BUTTON

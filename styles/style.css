@@ -75,7 +75,14 @@ body {
 
 #nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #c2c3c4;
+}
+
+.current {
+  text-decoration: underline;
 }
 
 #stop {}
