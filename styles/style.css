@@ -6,23 +6,18 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-.cursorContainer {
-  width: 100vw;
-  height: 100vh;
-  cursor: url('/img/hammer.png'), crosshair;
-}
-
 /* NAME FORM */
+
 .formContainer {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(128,128,128,0.2);
+  background-color: rgba(128, 128, 128, 0.2);
 }
+
 #nameForm {
-  width: 25%;
   height: 400px;
   background-color: #c1f2a9;
   margin: 0 auto;
@@ -32,7 +27,9 @@ body {
   align-items: center;
   border-radius: 40px;
 }
+
 #yourName {
+  width: 80%;
   background-color: #c2c3c4;
   padding: 10px 0;
   text-align: center;
@@ -40,6 +37,7 @@ body {
   border: none;
   font-size: 24px;
 }
+
 #submitName {
   padding: 5px 15px;
   background-color: #5cb85c;
@@ -49,10 +47,33 @@ body {
   margin-top: 30px;
 }
 
+@media only screen and (min-width: 768px) {
+  #nameForm {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  #nameForm {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  #nameForm {
+    width: 75%;
+  }
+}
+
 #mole:hover {
   cursor: grab;
 }
 
 #mole:active {
   cursor: grabbing;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
 }
