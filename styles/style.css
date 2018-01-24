@@ -65,6 +65,10 @@ body {
   }
 }
 
+#mole {
+  display: none;
+}
+
 #mole:hover {
   cursor: grab;
 }
