@@ -11,6 +11,7 @@ var currentLeader = document.getElementById("currentLeader");
 function submitForm() {
   nameForm.style.display = "none";
   currentLeader.innerHTML = yourName.value;
+  randomizer();
 }
 
 submitName.addEventListener("click", submitForm);
@@ -19,33 +20,39 @@ submitName.addEventListener("click", submitForm);
 mole.style.width = "100px";
 mole.style.height = "70px";
 
-var windowWidth = window.innerWidth;
-var windowHeight = window.innerHeight;
+function randomizer(min, max) {
+  min = 0;
+  hMax = parseInt(window.innerWidth);
+  vMax = parseInt(window.innerHeight);
 
-function randomizer() {
+  var numLeft = Math.floor(Math.random()*(hMax-min)+min);
+  var numTop = Math.floor(Math.random()*(vMax-min)+min);
+
+  console.log("Left: "+numLeft);
+  console.log("Top: "+numTop);
   // Random value between 0 and the dimensions of the browser window
-  var hRandom = Math.round(Math.random() * windowWidth);
-  var vRandom = Math.round(Math.random() * windowHeight);
-
-  console.log("Horizontal: " + hRandom);
-  console.log("Vertical: " + vRandom);
-
-  // Maximum left offset with "mole" size taken into account
-  var hMax = windowWidth - parseInt(mole.style.width);
-  var vMax = windowHeight - parseInt(mole.style.height);
-
-  mole.style.marginLeft = hRandom + "px";
-  mole.style.marginTop = vRandom + "px";
-
-  // If the "mole" goes outside the bounds of the window, re-run the function
-  if (hRandom > hMax || vRandom > vMax) {
-    console.log("Off the edge, reset");
-    randomizer();
-  }
+  // var hRandom = Math.round(Math.random() * windowWidth);
+  // var vRandom = Math.round(Math.random() * windowHeight);
+  //
+  // console.log("Horizontal: " + hRandom);
+  // console.log("Vertical: " + vRandom);
+  //
+  // // Maximum left offset with "mole" size taken into account
+  // var hMax = windowWidth - parseInt(mole.style.width);
+  // var vMax = windowHeight - parseInt(mole.style.height);
+  //
+  // mole.style.marginLeft = hRandom + "px";
+  // mole.style.marginTop = vRandom + "px";
+  //
+  // // If the "mole" goes outside the bounds of the window, re-run the function
+  // if (hRandom > hMax || vRandom > vMax) {
+  //   console.log("Off the edge, reset");
+  //   randomizer();
+  // }
 }
 
 // TIMED FUNCTION
-setInterval(randomizer, 70000);
+setInterval(randomizer, 100000);
 
 // SCOREKEEPING FUNCTIONALITY
 mole.addEventListener("click", function() {
