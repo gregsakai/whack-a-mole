@@ -8,10 +8,13 @@ var yourName = document.getElementById("yourName");
 var submitName = document.getElementById("submitName");
 var currentLeader = document.getElementById("currentLeader");
 
+var sessionName;
+
 function submitForm() {
   nameForm.style.display = "none";
   currentLeader.innerHTML = yourName.value;
   mole.style.display = "block";
+  sessionName = yourName.value;
   randomizer();
 }
 
@@ -41,17 +44,17 @@ function randomizer(min, max) {
     console.log("Off the edge, reset");
     randomizer();
   }
-
 }
 
 // TIMED FUNCTION
 var start = setInterval(randomizer, 10000);
 
 // IMAGE CHANGER AFTER 0.3 SECONDS
-function changeBack(){
+function changeBack() {
   mole.src = "imgs/mole.jpg";
 }
-function changeImg(){
+
+function changeImg() {
   mole.src = "imgs/mole2.jpg";
   setTimeout(changeBack, 300);
 }
@@ -65,25 +68,38 @@ mole.addEventListener("click", function() {
 
 // STOP BUTTON
 
-
-
-// function pushToDB(){
-//   //var data = nameForm.serializeArray();
-//
-//   $.post( $("#nameForm").attr("action"), $("#nameForm :input").serializeArray(), function(info){ $("#currentLeader").html(info);} );
-//
-// }
-
 var stop = document.getElementById("stop");
 stop.addEventListener("click", function() {
-  console.log("stops the game");
+  console.log("STOPS GAME");
   // stops the randomizer function
   clearInterval(start);
   // Use PHP to save user's name and score
-  //pushToDB();
-
+  pushToDB();
 });
 
 // PUSH TO DATABASE
+
+function getLeaderboard() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = () => {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById("currentLeader").innerHTML = xmlhttp.responseText;
+    }
+  };
+  xmlhttp.open("GET", "http://localhost/whack-a-mole/select.php", true);
+  xmlhttp.send();
+}
+
+function pushToDB() {
+  var xmlhttp = new XMLHttpRequest();
+  var request = "http://localhost/whack-a-mole/save.php?uName=" + sessionName + ": " + "&uScore=" + score;
+  xmlhttp.onreadystatechange = () => {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      getLeaderboard();
+    }
+  };
+  xmlhttp.open("GET", request, true);
+  xmlhttp.send();
+}
 
 // RESOURCE https://stackoverflow.com/questions/8412505/send-data-from-javascript-to-a-mysql-database
