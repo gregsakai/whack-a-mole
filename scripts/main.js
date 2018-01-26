@@ -1,6 +1,9 @@
 var mole = document.getElementById("mole");
 var scoreDiv = document.getElementById("scoreDiv");
+var audio = document.getElementById("audio");
 var score = 0;
+
+var stopped = false;
 
 // NAME SUBMISSION
 var nameForm = document.getElementById("nameForm");
@@ -16,6 +19,7 @@ function submitForm() {
   mole.style.display = "block";
   sessionName = yourName.value;
   randomizer();
+  getLeaderboard();
 }
 
 submitName.addEventListener("click", submitForm);
@@ -33,7 +37,6 @@ function randomizer(min, max) {
   var numLeft = Math.floor(Math.random() * (hMax - hMin) + hMin);
   var numTop = Math.floor(Math.random() * (vMax - vMin) + vMin);
 
-  console.log("Left: " + numLeft);
   console.log("Top: " + numTop);
 
   mole.style.marginLeft = numLeft + "px";
@@ -47,7 +50,7 @@ function randomizer(min, max) {
 }
 
 // TIMED FUNCTION
-var start = setInterval(randomizer, 10000);
+var start = setInterval(randomizer, 1000);
 
 // IMAGE CHANGER AFTER 0.3 SECONDS
 function changeBack() {
@@ -56,50 +59,63 @@ function changeBack() {
 
 function changeImg() {
   mole.src = "imgs/mole2.jpg";
+  audio.play();
+  // Audio file cuts out after 0.5 seconds,
+  // because no sound is present in the file after 500ms
+  setTimeout(function() {
+    audio.load();
+  }, 500);
   setTimeout(changeBack, 300);
 }
 
 // SCOREKEEPING FUNCTIONALITY
 mole.addEventListener("click", function() {
-  score++;
-  scoreDiv.innerHTML = score;
+  if (stopped === false) {
+    score++;
+    scoreDiv.innerHTML = score;
+  }
   changeImg();
 });
+
+// PUSH TO DATABASE
+
+// Leaderboard displays current leader as soon as page is loaded
+function getLeaderboard() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      currentLeader.innerHTML = xhr.responseText;
+    }
+  };
+  xhr.open("GET", "http://localhost/whack-a-mole/select.php", true);
+  xhr.send();
+}
+getLeaderboard();
+
+// Pushes the current user's name and score to the database
+function pushToDB() {
+  var xhr = new XMLHttpRequest();
+  var request = "http://localhost/whack-a-mole/save.php?uName=" + sessionName + ": " + "&uScore=" + score;
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      getLeaderboard();
+    }
+  };
+  xhr.open("GET", request, true);
+  xhr.send();
+}
 
 // STOP BUTTON
 
 var stop = document.getElementById("stop");
 stop.addEventListener("click", function() {
   console.log("STOPS GAME");
+  stopped = true;
+  scoreDiv.innerHTML = "Final score: " + score;
   // stops the randomizer function
   clearInterval(start);
   // Use PHP to save user's name and score
   pushToDB();
 });
-
-// PUSH TO DATABASE
-
-function getLeaderboard() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = () => {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById("currentLeader").innerHTML = xmlhttp.responseText;
-    }
-  };
-  xmlhttp.open("GET", "http://localhost/whack-a-mole/select.php", true);
-  xmlhttp.send();
-}
-
-function pushToDB() {
-  var xmlhttp = new XMLHttpRequest();
-  var request = "http://localhost/whack-a-mole/save.php?uName=" + sessionName + ": " + "&uScore=" + score;
-  xmlhttp.onreadystatechange = () => {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      getLeaderboard();
-    }
-  };
-  xmlhttp.open("GET", request, true);
-  xmlhttp.send();
-}
 
 // RESOURCE https://stackoverflow.com/questions/8412505/send-data-from-javascript-to-a-mysql-database
