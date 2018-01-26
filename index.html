@@ -26,15 +26,16 @@
     </div>
   </div>
 
-  <div id="nameForm">
-    <input type="text" id="yourName" placeholder="Enter name" />
+  <form id="nameForm" action="save.php" method="post" onsubmit="submitForm()">
+    <input type="text" name="name" id="yourName" placeholder="Enter name" />
     <br/>
     <button id="submitName">SUBMIT</button>
-  </div>
+  </form>
 
   <img src="imgs/mole.jpg" alt="mole" id="mole" />
 
   <script src="scripts/main.js" type="text/javascript"></script>
+  <script src="scripts/dbpush.js" type="text/javascript"></script>
 </body>
 
 </html>

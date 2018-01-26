@@ -36,29 +36,51 @@ function randomizer(min, max) {
   mole.style.marginLeft = numLeft + "px";
   mole.style.marginTop = numTop + "px";
 
-  // // If the mole goes outside the bounds of the window, re-run the function
+  // If the mole goes outside the bounds of the window, re-run the function
   if (numLeft > hMax || numTop > vMax) {
     console.log("Off the edge, reset");
     randomizer();
   }
+
 }
 
 // TIMED FUNCTION
-var start = setInterval(randomizer, 1000);
+var start = setInterval(randomizer, 10000);
+
+// IMAGE CHANGER AFTER 0.3 SECONDS
+function changeBack(){
+  mole.src = "imgs/mole.jpg";
+}
+function changeImg(){
+  mole.src = "imgs/mole2.jpg";
+  setTimeout(changeBack, 300);
+}
 
 // SCOREKEEPING FUNCTIONALITY
 mole.addEventListener("click", function() {
   score++;
   scoreDiv.innerHTML = score;
+  changeImg();
 });
 
 // STOP BUTTON
+
+
+
+// function pushToDB(){
+//   //var data = nameForm.serializeArray();
+//
+//   $.post( $("#nameForm").attr("action"), $("#nameForm :input").serializeArray(), function(info){ $("#currentLeader").html(info);} );
+//
+// }
+
 var stop = document.getElementById("stop");
 stop.addEventListener("click", function() {
   console.log("stops the game");
   // stops the randomizer function
   clearInterval(start);
   // Use PHP to save user's name and score
+  //pushToDB();
 
 });
 
