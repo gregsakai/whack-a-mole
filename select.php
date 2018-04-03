@@ -1,5 +1,5 @@
 <?php
-
+    /*
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -20,5 +20,5 @@
     } catch(PDOException $e) {
         echo "<p>" . $e->getMessage() . "</p>";
     }
-
+    */
 ?>
