@@ -32,10 +32,10 @@ function randomizer(min, max) {
   hMin = 0;
   vMin = 100;
   hMax = parseInt(window.innerWidth) - parseInt(mole.style.width);
-  vMax = parseInt(window.innerHeight) - parseInt(mole.style.height);
+  vMax = parseInt(window.innerHeight) - parseInt(mole.style.height) - 70;
 
   var numLeft = Math.floor(Math.random() * (hMax - hMin) + hMin);
-  var numTop = Math.floor(Math.random() * (vMax - vMin) + vMin);
+  var numTop = Math.abs(Math.floor(Math.random() * (vMax - vMin) + vMin));
 
   console.log("Top: " + numTop);
 
