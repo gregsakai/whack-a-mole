@@ -54,11 +54,11 @@ var start = setInterval(randomizer, 1000);
 
 // IMAGE CHANGER AFTER 0.3 SECONDS
 function changeBack() {
-  mole.src = "imgs/mole.jpg";
+  mole.src = "imgs/mole-unclicked.png";
 }
 
 function changeImg() {
-  mole.src = "imgs/mole2.jpg";
+  mole.src = "imgs/mole-clicked.png";
   audio.play();
   // Audio file cuts out after 0.5 seconds,
   // because no sound is present in the file after 500ms
